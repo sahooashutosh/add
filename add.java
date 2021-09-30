@@ -1,3 +1,7 @@
+import java.util.Scanner;
+import java.util.HashMap;
+
+
 public class Myclass{
 public static void main(String args[]){
 /* add two function*/
@@ -7,7 +11,8 @@ public static void main(String args[]){
         String str = sc.nextLine();
         int len = str.length();
         int max = 0;
-        for(int i = 0; i<len ; i++){
+        Map map = new HashMap();
+        /*for(int i = 0; i<len ; i++){
             int temp = 0;
             for(int j = 0;j< len;j++){
                 if(str[i]==str[j]){
@@ -17,7 +22,20 @@ public static void main(String args[]){
             if(temp > max){
                 max=temp;
             }
+        }*/
+        for (char c : str) {
+            if (charCountMap.containsKey(c)) {
+                charCountMap.put(c, charCountMap.get(c) + 1);
+            }
+            else {
+                charCountMap.put(c, 1);
+            }
         }
-        System.out.println(max+"The hisgest number of letters in the word"+str);
+ 
+        // Printing the charCountMap
+        for (Map.Entry entry : charCountMap.entrySet()) {
+            System.out.println(entry.getKey() + " " + entry.getValue());
+        }
+        //System.out.println(max+"The highest number of letters in the word"+str);
 }
 }
